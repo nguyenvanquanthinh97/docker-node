@@ -10,6 +10,11 @@ on:
   pull_request:
     branches: [ master ]
 
+  # Allow push image to Docker Hub if commit has tag "v*.*.*"
+  push:
+    tags:
+      - "v*.*.*"
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
