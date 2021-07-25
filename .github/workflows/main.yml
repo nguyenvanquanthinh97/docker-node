@@ -7,6 +7,9 @@ on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
     branches: [ master ]
+    # Allow push image to Docker Hub if commit has tag "v*.*.*"
+    tags:
+      - "v*.*.*"
   pull_request:
     branches: [ master ]
 
