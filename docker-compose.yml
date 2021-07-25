@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  app:
+    image: node:12.8.1
+    ports:
+      - 8000:8000
+    working_dir: /app
+    volumes:
+      - ./:/app
+    environment:
+      CONNECTIONSTRING: mongodb://mongodb:27017/notes
+      SERVER_PORT: 8000
+    command: bash -c "npm install && npm start"
+
+  mongodb:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb:/data/db
+      - mongodb_config:/data/configdb
+
+volumes:
+  mongodb:
+  mongodb_config:
