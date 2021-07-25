@@ -14,4 +14,5 @@ RUN npm run test
 FROM base as prod
 RUN npm ci --production
 COPY . .
+RUN npm run test
 CMD ["npm", "start"]
