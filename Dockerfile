@@ -5,4 +5,5 @@ WORKDIR /app
 COPY ["package.json", "package-lock.json*", "./"]
 RUN npm install --production
 COPY . .
+RUN npm run test
 CMD ["npm", "start"]
